@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RepositoryTest {
     @Test
-    public void remove() {
+    public void deleteProduct() {
         Repository repo = new Repository();
         BookService book1 = new BookService(1, "book 1", 100, "author 1");
         BookService book2 = new BookService(2, "book 2", 200, "author 2");

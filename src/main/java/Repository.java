@@ -15,6 +15,10 @@ public class Repository {
     }
 
     public void delete(int id) {
+        if (findById(id) == null) {
+            throw new NotFoundException(id);
+        }
+
         ProductService[] tmp = new ProductService[products.length - 1];
         int indexTo = 0;
         for (ProductService product : products) {
@@ -26,5 +30,13 @@ public class Repository {
         products = tmp;
     }
 
-
+    public ProductService findById(int id) {
+        for (ProductService product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
 }
+
